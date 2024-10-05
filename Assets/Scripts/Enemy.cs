@@ -1,18 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Rigidbody2D _rigidBody;
+    [SerializeField] private float _speed = 4f;
+
+    private void FixedUpdate()
     {
-        
+        _rigidBody.transform.position += (Vector2.left * _speed * Time.fixedDeltaTime).ToVector3WithY0();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter2D(Collision2D collision2D)
     {
-        
+        if (collision2D.gameObject.layer == LayerMask.NameToLayer("House"))
+        {
+            Debug.Log("DEFEAT");
+            GameObject.Destroy(gameObject);
+        }
+    }
+
+    public void HitByCat()
+    {
+        GameObject.Destroy(gameObject);
     }
 }

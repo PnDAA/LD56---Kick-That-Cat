@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "LD56 - Kick That Cat.sln"
+    "dotnet.defaultSolution": "LD56 - Kick That Cat.sln",
+    "workbench.colorTheme": "GitHub Dark"
 }
