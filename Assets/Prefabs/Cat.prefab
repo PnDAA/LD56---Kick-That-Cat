@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 905757764889052911}
   - component: {fileID: 6719050446077889426}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Walking Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5342688167612691417}
   - component: {fileID: 2554492435390609091}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Flying Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 5133053525162075837}
   - component: {fileID: 6933269179187676896}
   - component: {fileID: 696394619484977859}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Cat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5332693591655615365}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Flying Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +334,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8664868721021681878}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Walking Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}

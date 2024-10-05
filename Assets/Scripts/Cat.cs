@@ -11,9 +11,6 @@ public class Cat : MonoBehaviour
     [SerializeField] private GameObject _toEnableOnWalking;
     [SerializeField] private GameObject _toEnableOnFlying;
 
-    private float _hitGroundTime = 0f;
-    private int _hitGroundCount = 0;
-
     private enum State
     {
         Walking,
@@ -40,6 +37,7 @@ public class Cat : MonoBehaviour
         _toEnableOnWalking.SetActive(false);
         _toEnableOnFlying.SetActive(true);
         _state = State.Shooted;
+        gameObject.layer = LayerMask.NameToLayer("Cat"); // allow collision with enemies.
         StopAllCoroutines(); // in case we collide the ground before being shooted
     }
 
@@ -50,36 +48,28 @@ public class Cat : MonoBehaviour
         bool isGround = layer == LayerMask.NameToLayer("Default");
         if (_state == State.Falling)
         {
-            if (isEnemy) // (can only kill if shooted + don't want to stop the enemy too long)
-                GameObject.Destroy(gameObject);
-            else if (isGround)
-                this.StartCoroutineDoAfterXSec(0.25f, () => GameObject.Destroy(gameObject)); // permit to be shooted for a frame (will cancel the coroutine)
+            // (can't be enemy cause FallingCat don't collide with ground)
+            if (isGround)
+            {
+                Debug.Log("Collide with ground while falling");
+                this.StartCoroutineDoAfterXSec(0.1f, () => GameObject.Destroy(gameObject)); // permit to be shooted for a frame (will cancel the coroutine)
+            }
         }
         else if (_state == State.Shooted)
         {
             if (isEnemy)
             {
                 //
+                Debug.Log("Collide with enemy");
                 collision2D.gameObject.GetComponent<Enemy>().HitByCat();
                 GameObject.Destroy(gameObject);
             }
             else if (isGround)
             {
-                // kill if too many rebounce or if collide with ground for too long
-                _hitGroundTime = Time.time;
-                _hitGroundCount++;
-                if (_hitGroundCount >= 3)
-                    GameObject.Destroy(gameObject);
+                Debug.Log("Collide with ground");
+                GameObject.Destroy(gameObject);
             }
         }
-    }
-
-    private void OnCollisionStay2D(Collision2D collision2D)
-    {
-        int layer = collision2D.gameObject.layer;
-        bool isGround = layer == LayerMask.NameToLayer("Default");
-        if (isGround && Time.time - _hitGroundTime >= 1f)
-            GameObject.Destroy(gameObject);
     }
 
     private void OnCollisionExit2D(Collision2D collision2D)

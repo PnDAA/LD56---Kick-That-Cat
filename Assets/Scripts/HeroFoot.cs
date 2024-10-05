@@ -20,7 +20,7 @@ public class HeroFoot : MonoBehaviour
 
     public void ShootCatsInCollision()
     {
-        Collider2D[] catsCollision = Physics2D.OverlapCircleAll(transform.position, _scaledRadius, LayerMask.GetMask("Cat"));
+        Collider2D[] catsCollision = Physics2D.OverlapCircleAll(transform.position, _scaledRadius, LayerMask.GetMask("Cat", "FallingCat"));
         foreach (Collider2D catInCollision in catsCollision)
         {
             Cat cat = catInCollision.GetComponent<Cat>();
@@ -31,6 +31,7 @@ public class HeroFoot : MonoBehaviour
 
             _shootedCats.Add(cat);
             Vector2 direction = new Vector2(2, 3).normalized;
+            cat.RigidBody.velocity = Vector2.zero;
             cat.RigidBody.AddForce(direction * _strength, ForceMode2D.Force);
             cat.SetShooted();
             Debug.Log($"Hit cat with strength: {_strength}!");
