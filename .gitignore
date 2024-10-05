@@ -1,0 +1,90 @@
+# =============== #
+# Unity generated #
+# =============== #
+Temp/
+Library/
+Library_/
+Library__/
+Library___/
+Logs/
+obj/
+UserSettings/
+
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+ExportedObj/
+obj/
+*.svd
+*.userprefs
+/*.csproj
+*.pidb
+*.suo
+/*.sln
+*.user
+*.unityproj
+*.booproj
+
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+ld46.code-workspace
+gifs/
+build/
+
+# perso
+.vscode/launch.json
+Release/
+Release_win/
+Release_web/
+Release_web.zip
+Build.zip
+Recordings/
+MemoryCaptures/
+
+# Packages
+*.unitypackage
+
+# It is generated each time by the genrator. Don't need to keep it.
+Assets/Scenes/SampleScene/NavMesh*
+
+# External assets
+Assets/FastScriptReload
+Assets/FastScriptReload.meta
+
+# Precomputed mesh (take space for something that we can compute)
+Assets/PrecomputedMeshes/**
+
+# client id & secret (localization)
+Assets/Localization/Google Sheets Service.asset
+
+# switch stuff
+SwitchIL2CPPCache/**
+
+# logs
+LogsToKeep/**
+
+# Don't want to push dlls, download it yourself.
+Assets/Facepunch.Steamwork.2.3.2/**
+
+# audacity files
+**.aup3
+**.aup3.meta
+**.shm
+**.shm.meta
+**.aup3-shm
+**.aup3-shm.meta
+**.aup3-wal
+**.aup3-wal.meta
+AUP3Files/**
+
+# images
+Images/**
+SteamStuff/**
