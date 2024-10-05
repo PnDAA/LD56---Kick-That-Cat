@@ -10,6 +10,9 @@ public class Cat : MonoBehaviour
 
     [SerializeField] private GameObject _toEnableOnWalking;
     [SerializeField] private GameObject _toEnableOnFlying;
+    [SerializeField] private TrailRenderer _trail;
+
+    private float _strengthRatioShooted;
 
     private enum State
     {
@@ -30,15 +33,21 @@ public class Cat : MonoBehaviour
         {
            _rigidBody.transform.position += (Vector2.right * Time.fixedDeltaTime * _fallingSpeed).ToVector3WithY0();
         }
+        else if (_state == State.Shooted)
+        {
+            _toEnableOnFlying.transform.Rotate(new Vector3(0, 0, 1), -Time.deltaTime * _strengthRatioShooted * 720f);
+        }
     }
 
-    public void SetShooted()
+    public void SetShooted(float strengthRatio)
     {
         _toEnableOnWalking.SetActive(false);
         _toEnableOnFlying.SetActive(true);
         _state = State.Shooted;
+        _strengthRatioShooted = strengthRatio;
         gameObject.layer = LayerMask.NameToLayer("Cat"); // allow collision with enemies.
         StopAllCoroutines(); // in case we collide the ground before being shooted
+        _trail.enabled = true;
     }
 
     private void OnCollisionEnter2D(Collision2D collision2D)

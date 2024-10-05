@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -12,7 +11,7 @@ public class HeroFoot : MonoBehaviour
 
     private bool _detectCollisions = false;
     private float _time = 0f;
-    private float _strength;
+    private float _strengthRatio;
 
     private float _scaledRadius => _radius * transform.lossyScale.x;
 
@@ -32,9 +31,11 @@ public class HeroFoot : MonoBehaviour
             _shootedCats.Add(cat);
             Vector2 direction = new Vector2(2, 3).normalized;
             cat.RigidBody.velocity = Vector2.zero;
-            cat.RigidBody.AddForce(direction * _strength, ForceMode2D.Force);
-            cat.SetShooted();
-            Debug.Log($"Hit cat with strength: {_strength}!");
+
+            float strength = Mathf.Lerp(_minStrength, _maxStrength, _strengthRatio);
+            cat.RigidBody.AddForce(direction * strength, ForceMode2D.Force);
+            cat.SetShooted(_strengthRatio);
+            Debug.Log($"Hit cat with strength: {strength}!");
         }
     }
 
@@ -56,7 +57,7 @@ public class HeroFoot : MonoBehaviour
         _shootedCats?.Clear();
         _detectCollisions = true;
         _time = 0f;
-        _strength = Mathf.Lerp(_minStrength, _maxStrength,  strengthRatio);
+        _strengthRatio = strengthRatio;
     }
 
     public void StopCatDetection()
