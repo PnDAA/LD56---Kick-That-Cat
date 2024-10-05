@@ -46,11 +46,6 @@ public class Cat : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision2D)
     {
         int layer = collision2D.gameObject.layer;
-
-        // To be sure cat don't leave the level.
-        if (layer == LayerMask.NameToLayer("CatStopper"))
-            GameObject.Destroy(gameObject);
-
         bool isEnemy = layer == LayerMask.NameToLayer("Enemy");
         bool isGround = layer == LayerMask.NameToLayer("Default");
         if (_state == State.Falling)
