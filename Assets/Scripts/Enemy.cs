@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
 
     public void HitByCat()
     {
+        Debug.Log("Got hit !");
         GameObject.Destroy(gameObject);
     }
 }

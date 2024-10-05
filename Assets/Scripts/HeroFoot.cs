@@ -1,14 +1,16 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class HeroFoot : MonoBehaviour
 {
-    [SerializeField] private float _strength = 1f;
+    [SerializeField] private float _strengthMutliplier = 1f;
     [SerializeField] private float _radius = 1f;
     [SerializeField] private float _detectionRate = 10f;
 
     private bool _detectCollisions = false;
     private float _time = 0f;
+    private float _strength;
 
     public void ShootCatsInCollision()
     {
@@ -18,7 +20,8 @@ public class HeroFoot : MonoBehaviour
             Cat cat = catInCollision.GetComponent<Cat>();
             Vector2 direction = new Vector2(1, 1);
             cat.RigidBody.AddForce(direction.normalized * _strength, ForceMode2D.Force);
-            Debug.Log("Hit cat!");
+            cat.SetShooted();
+            Debug.Log($"Hit cat with strength: {_strength}!");
         }
     }
 
@@ -41,9 +44,15 @@ public class HeroFoot : MonoBehaviour
         }
     }
 
-    public void SetCatDetection(bool value)
+    public void StartCatDetection(float strengthRatio)
     {
-        _detectCollisions = value;
+        _detectCollisions = true;
         _time = 0f;
+        _strength = strengthRatio * _strengthMutliplier;
+    }
+
+    public void StopCatDetection()
+    {
+        _detectCollisions = false;
     }
 }
