@@ -6,6 +6,7 @@ public class Hero : MonoBehaviour
 {
     [SerializeField] private HeroFoot _heroFoot;
     [SerializeField] private float _timeForFullStrength = 2f;
+    [SerializeField] private Animator _animator;
 
     private Inputs _inputActions;
 
@@ -34,19 +35,18 @@ public class Hero : MonoBehaviour
 
     private void OnShootStarted(InputAction.CallbackContext context)
     {
+        _heroFoot.StopCatDetection(); // in case we start a new shoot with an animation that didn't stopped.
+
         _shootStartedTime = Time.time;
         OnShootStartedEvent?.Invoke();
+        _animator.SetTrigger("prepare_shoot");
     }
 
     private void OnShootReleased(InputAction.CallbackContext context)
     {
         _heroFoot.StartCatDetection(GetCurrentStrengthRatio());
-
-        // mimic animation
-        this.StopAllCoroutines();
-        this.StartCoroutineDoAfterXSec(1f, () => _heroFoot.StopCatDetection());
-
         OnShootStoppedEvent?.Invoke();
+        _animator.SetTrigger("shoot");
     }
 
     public float GetCurrentStrengthRatio()
@@ -58,5 +58,10 @@ public class Hero : MonoBehaviour
         if (timeSinceStartedModuled >= _timeForFullStrength)
             wantedtime = 2f * _timeForFullStrength - timeSinceStartedModuled;
         return wantedtime / _timeForFullStrength;
+    }
+
+    public void OnShootFinished()
+    {
+        _heroFoot.StopCatDetection();
     }
 }
