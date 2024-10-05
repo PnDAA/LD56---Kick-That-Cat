@@ -8,6 +8,10 @@ public class Cat : MonoBehaviour
     [SerializeField] private Rigidbody2D _rigidBody;
     public Rigidbody2D RigidBody => _rigidBody;
 
+    [SerializeField] private GameObject _toEnableOnWalking;
+    [SerializeField] private GameObject _toEnableOnFlying;
+
+
     private enum State
     {
         Walking,
@@ -27,10 +31,16 @@ public class Cat : MonoBehaviour
         {
            _rigidBody.transform.position += (Vector2.right * Time.fixedDeltaTime * _fallingSpeed).ToVector3WithY0();
         }
+        else if (_state == State.Shooted)
+        {
+            _rigidBody.rotation = Vector2.Angle(Vector2.right, _rigidBody.velocity);
+        }
     }
 
     public void SetShooted()
     {
+        _toEnableOnWalking.SetActive(false);
+        _toEnableOnFlying.SetActive(true);
         _state = State.Shooted;
     }
 
