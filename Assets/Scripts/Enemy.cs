@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log("DEFEAT");
             GameObject.Destroy(gameObject);
+            Game.Instance.GameRestarter.Restart();
         }
     }
 
