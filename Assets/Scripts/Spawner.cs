@@ -14,7 +14,7 @@ public class Spawner : MonoBehaviour
         {
             _time = 0f;
             GameObject prefab = _prefabs.TakeOneRandom();
-            GameObject.Instantiate(prefab, parent: null, position: transform.position, rotation: transform.rotation);
+            GameObject.Instantiate(prefab, parent: transform, position: transform.position, rotation: transform.rotation);
         }
     }
 }

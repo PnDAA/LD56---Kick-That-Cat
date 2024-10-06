@@ -48,6 +48,7 @@ public class Cat : MonoBehaviour
         gameObject.layer = LayerMask.NameToLayer("Cat"); // allow collision with enemies.
         StopAllCoroutines(); // in case we collide the ground before being shooted
         _trail.enabled = true;
+        GlobalPrefabInstanciater.Instance.InstanciateSmallHitPrefab(transform.position, Mathf.Lerp(0.1f, 0.3f, strengthRatio));
     }
 
     private void OnCollisionEnter2D(Collision2D collision2D)
@@ -61,7 +62,11 @@ public class Cat : MonoBehaviour
             if (isGround)
             {
                 Debug.Log("Collide with ground while falling");
-                this.StartCoroutineDoAfterXSec(0.1f, () => GameObject.Destroy(gameObject)); // permit to be shooted for a frame (will cancel the coroutine)
+                this.StartCoroutineDoAfterXSec(0.1f, () => 
+                {
+                    GameObject.Destroy(gameObject);
+                    GlobalPrefabInstanciater.Instance.InstanciateSmallHitPrefab(transform.position, 0.1f);
+                }); // permit to be shooted for a frame (will cancel the coroutine)
             }
         }
         else if (_state == State.Shooted)
@@ -72,11 +77,13 @@ public class Cat : MonoBehaviour
                 Debug.Log("Collide with enemy");
                 collision2D.gameObject.GetComponent<Enemy>().HitByCat();
                 GameObject.Destroy(gameObject);
+                GlobalPrefabInstanciater.Instance.InstanciateHitPrefab(transform.position, 0.5f);
             }
             else if (isGround)
             {
                 Debug.Log("Collide with ground");
                 GameObject.Destroy(gameObject);
+                GlobalPrefabInstanciater.Instance.InstanciateSmallHitPrefab(transform.position, 0.25f);
             }
         }
     }
