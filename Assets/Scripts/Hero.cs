@@ -12,6 +12,8 @@ public class Hero : MonoBehaviour
 
     private float _shootStartedTime = 0f;
 
+    private float _lastShootStrength;
+
     public event Action OnShootStartedEvent;
     public event Action OnShootStoppedEvent;
 
@@ -55,9 +57,9 @@ public class Hero : MonoBehaviour
         if (Time.timeScale == 0)
             return;
 
-        _heroFoot.StartCatDetection(GetCurrentStrengthRatio());
         OnShootStoppedEvent?.Invoke();
         _animator.SetTrigger("shoot");
+        _lastShootStrength = GetCurrentStrengthRatio();
     }
 
     public float GetCurrentStrengthRatio()
@@ -71,7 +73,12 @@ public class Hero : MonoBehaviour
         return wantedtime / _timeForFullStrength;
     }
 
-    public void OnShootFinished()
+    public void OnAnimationStartDetection()
+    {
+        _heroFoot.StartCatDetection(_lastShootStrength);
+    }
+
+    public void OnAnimationStopDetection()
     {
         _heroFoot.StopCatDetection();
     }

@@ -13,7 +13,6 @@ public class EnemyHealthBar : MonoBehaviour
 
     private void OnHealthRemoved()
     {
-        _slider.gameObject.SetActive(true);
         _slider.value = _enemy.GetHealthRatio();
     }
 }

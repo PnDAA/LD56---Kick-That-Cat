@@ -22,10 +22,9 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision2D)
     {
-        if (collision2D.gameObject.layer == LayerMask.NameToLayer("House"))
+        if (collision2D.gameObject.layer == LayerMask.NameToLayer("GameOverDetector"))
         {
             Debug.Log("DEFEAT");
-            GameObject.Destroy(gameObject);
             Game.Instance.DoGameOver();
         }
     }
