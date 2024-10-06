@@ -53,6 +53,13 @@ public class Hero : MonoBehaviour
         _audioSource.Play();
     }
 
+    private void ResetTriggers()
+    {
+        _animator.ResetTrigger("shoot");
+        _animator.ResetTrigger("prepare_shoot");
+        _animator.ResetTrigger("stop");
+    }
+
     private void OnShootStarted(InputAction.CallbackContext context)
     {
         if (Time.timeScale == 0)
@@ -62,6 +69,8 @@ public class Hero : MonoBehaviour
 
         _shootStartedTime = Time.time;
         OnShootStartedEvent?.Invoke();
+        ResetTriggers(); // to handle better animation cancel
+        _animator.SetTrigger("stop"); // cancel on going shoot animation
         _animator.SetTrigger("prepare_shoot");
         PlayRandomSound(_prepareSound);
     }
@@ -72,6 +81,7 @@ public class Hero : MonoBehaviour
             return;
 
         OnShootStoppedEvent?.Invoke();
+        ResetTriggers(); // to handle better animation cancel
         _animator.SetTrigger("shoot");
         _lastShootStrength = GetCurrentStrengthRatio();
         PlayRandomSound(_shootSound);

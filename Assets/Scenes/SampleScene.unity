@@ -6732,10 +6732,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.03628751
-    y: 0
-    width: 0.9267271
-    height: 0.99879664
+    x: 0.01465457
+    y: 0.0012033695
+    width: 0.9713887
+    height: 1.0469314
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -11570,7 +11570,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.8}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
