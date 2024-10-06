@@ -555,6 +555,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "MyUI",
+            "id": "1b86477d-bb80-42d5-a606-1dfffb40041f",
+            "actions": [
+                {
+                    "name": "Validate",
+                    "type": "Button",
+                    "id": "f1548083-badd-4109-80c2-a8425b125161",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ad05e286-5434-4dba-8546-c98cce469220",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Validate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

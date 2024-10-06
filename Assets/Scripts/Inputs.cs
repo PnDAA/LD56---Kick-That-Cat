@@ -577,6 +577,34 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""MyUI"",
+            ""id"": ""1b86477d-bb80-42d5-a606-1dfffb40041f"",
+            ""actions"": [
+                {
+                    ""name"": ""Validate"",
+                    ""type"": ""Button"",
+                    ""id"": ""f1548083-badd-4109-80c2-a8425b125161"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""ad05e286-5434-4dba-8546-c98cce469220"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Validate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -657,6 +685,9 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         m_UI_RightClick = m_UI.FindAction("RightClick", throwIfNotFound: true);
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
+        // MyUI
+        m_MyUI = asset.FindActionMap("MyUI", throwIfNotFound: true);
+        m_MyUI_Validate = m_MyUI.FindAction("Validate", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -878,6 +909,52 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
+
+    // MyUI
+    private readonly InputActionMap m_MyUI;
+    private List<IMyUIActions> m_MyUIActionsCallbackInterfaces = new List<IMyUIActions>();
+    private readonly InputAction m_MyUI_Validate;
+    public struct MyUIActions
+    {
+        private @Inputs m_Wrapper;
+        public MyUIActions(@Inputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Validate => m_Wrapper.m_MyUI_Validate;
+        public InputActionMap Get() { return m_Wrapper.m_MyUI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MyUIActions set) { return set.Get(); }
+        public void AddCallbacks(IMyUIActions instance)
+        {
+            if (instance == null || m_Wrapper.m_MyUIActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_MyUIActionsCallbackInterfaces.Add(instance);
+            @Validate.started += instance.OnValidate;
+            @Validate.performed += instance.OnValidate;
+            @Validate.canceled += instance.OnValidate;
+        }
+
+        private void UnregisterCallbacks(IMyUIActions instance)
+        {
+            @Validate.started -= instance.OnValidate;
+            @Validate.performed -= instance.OnValidate;
+            @Validate.canceled -= instance.OnValidate;
+        }
+
+        public void RemoveCallbacks(IMyUIActions instance)
+        {
+            if (m_Wrapper.m_MyUIActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IMyUIActions instance)
+        {
+            foreach (var item in m_Wrapper.m_MyUIActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_MyUIActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public MyUIActions @MyUI => new MyUIActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -939,5 +1016,9 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         void OnRightClick(InputAction.CallbackContext context);
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
+    }
+    public interface IMyUIActions
+    {
+        void OnValidate(InputAction.CallbackContext context);
     }
 }

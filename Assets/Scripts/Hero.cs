@@ -23,6 +23,11 @@ public class Hero : MonoBehaviour
         _inputActions.Player.Shoot.canceled += OnShootReleased;
     }
 
+    private void OnDestroy()
+    {
+        _inputActions?.Dispose();
+    }
+
     private void OnEnable()
     {
         _inputActions.Player.Enable();
@@ -35,6 +40,9 @@ public class Hero : MonoBehaviour
 
     private void OnShootStarted(InputAction.CallbackContext context)
     {
+        if (Time.timeScale == 0)
+            return;
+
         _heroFoot.StopCatDetection(); // in case we start a new shoot with an animation that didn't stopped.
 
         _shootStartedTime = Time.time;
@@ -44,6 +52,9 @@ public class Hero : MonoBehaviour
 
     private void OnShootReleased(InputAction.CallbackContext context)
     {
+        if (Time.timeScale == 0)
+            return;
+
         _heroFoot.StartCatDetection(GetCurrentStrengthRatio());
         OnShootStoppedEvent?.Invoke();
         _animator.SetTrigger("shoot");
