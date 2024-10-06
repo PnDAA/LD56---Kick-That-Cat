@@ -17,9 +17,12 @@ public class EnemySpawner : MonoBehaviour
 
     private float _time;
     private int _currentIndex = -1;
+    public int CurrentIndex => _currentIndex;
 
     private List<GameObject> _spawned;
     public IEnumerable<GameObject> Spawned => _spawned;
+
+    public event Action<GameObject> OnSpawned;
 
     private void Awake()
     {
@@ -28,9 +31,9 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
+        _spawned = _spawned.Where(s => (bool) s).ToList();
         if (IsFinished)
         {
-            _spawned = _spawned.Where(s => (bool) s).ToList();
             if (!_spawned.Any())
             {
                 Game.Instance.DoGameWin();
@@ -53,8 +56,14 @@ public class EnemySpawner : MonoBehaviour
                 {
                     GameObject instanciated = GameObject.Instantiate(prefab, parent: transform, position: transform.position, rotation: transform.rotation);
                     _spawned.Add(instanciated);
+                    OnSpawned?.Invoke(instanciated);
                 }
             }
         }
+    }
+
+    public int GetTotalToSpawnCount()
+    {
+        return _prefabs.Count(p => (bool) p.Prefab);
     }
 }

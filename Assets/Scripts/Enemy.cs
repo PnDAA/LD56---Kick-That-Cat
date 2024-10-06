@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
 
     private int _currentHealth;
     public event Action OnHealthRemoved;
+    public event Action OnDead;
 
     private void Awake()
     {
@@ -45,7 +46,10 @@ public class Enemy : MonoBehaviour
         _currentHealth--;
         OnHealthRemoved?.Invoke();
         if (_currentHealth <= 0)
+        {
             GameObject.Destroy(gameObject);
+            OnDead?.Invoke();
+        }
     }
 
     public float GetHealthRatio()
