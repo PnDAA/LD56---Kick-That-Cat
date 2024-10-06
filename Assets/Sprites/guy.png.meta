@@ -152,12 +152,12 @@ TextureImporter:
       name: guy_0
       rect:
         serializedVersion: 2
-        x: 32
+        x: 9
         y: 197
-        width: 140
-        height: 234
+        width: 163
+        height: 251
       alignment: 9
-      pivot: {x: 0.39824438, y: 0.4237229}
+      pivot: {x: 0.47476113, y: 0.38691536}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -174,9 +174,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 285
-        y: 274
+        y: 258
         width: 114
-        height: 163
+        height: 191
       alignment: 9
       pivot: {x: 0.6445808, y: 0.15107755}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -152,12 +152,12 @@ TextureImporter:
       name: cat_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 27
-        width: 213
-        height: 141
+        x: 4
+        y: 10
+        width: 235
+        height: 181
       alignment: 9
-      pivot: {x: 0.5338107, y: 0.39784905}
+      pivot: {x: 0.509851, y: 0.37607342}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,12 +173,12 @@ TextureImporter:
       name: cat_1
       rect:
         serializedVersion: 2
-        x: 576
-        y: 11
-        width: 248
-        height: 378
+        x: 521
+        y: 0
+        width: 344
+        height: 431
       alignment: 9
-      pivot: {x: 0.39628994, y: 0.59253824}
+      pivot: {x: 0.44416347, y: 0.5459697}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
