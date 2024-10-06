@@ -11,6 +11,7 @@ public class Game : MonoBehaviour
     [SerializeField] public GameObject ToDisplayOnGameOver;
     [SerializeField] public GameObject ToDisplayOnGameWin;
     [SerializeField] public SoundPlayer SoundPlayer;
+    [SerializeField] public AudioSource Music;
 
     private void Awake()
     {
@@ -27,5 +28,15 @@ public class Game : MonoBehaviour
     public void DoGameWin()
     {
         ToDisplayOnGameWin.gameObject.SetActive(true);  
+    }
+
+    public void SetMusicVolume(float value)
+    {
+        Music.volume = value;
+    }
+
+    public void SetMusicPitch(float value)
+    {
+        Music.pitch = value;
     }
 }

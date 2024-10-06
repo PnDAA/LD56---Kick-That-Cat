@@ -194,12 +194,12 @@ TextureImporter:
       name: hitstars_2
       rect:
         serializedVersion: 2
-        x: 381
-        y: 31
-        width: 224
+        x: 1187
+        y: 477
+        width: 226
         height: 397
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -225,6 +225,7 @@ TextureImporter:
       hitstars_0: 737918181
       hitstars_1: -1012016838
       hitstars_2: -1689214536
+      hitstars_3: -618483453
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
