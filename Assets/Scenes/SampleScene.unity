@@ -472,7 +472,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6728,10 +6728,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.030704815
-    y: 0.004716981
-    width: 0.9378925
-    height: 0.9905661
+    x: 0.03628751
+    y: 0
+    width: 0.9267271
+    height: 0.99879664
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -8312,7 +8312,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10927,27 +10927,27 @@ MonoBehaviour:
   - Prefab: {fileID: 5851056092708439941, guid: 89fedbe2c0d02404ca1b90801f2ceecd, type: 3}
     Time: 11
   - Prefab: {fileID: 5851056092708439941, guid: 89fedbe2c0d02404ca1b90801f2ceecd, type: 3}
-    Time: 11
+    Time: 8
   - Prefab: {fileID: 5851056092708439941, guid: 2708e084de243b24393c160b72bb42a2, type: 3}
-    Time: 10
+    Time: 8
   - Prefab: {fileID: 5851056092708439941, guid: 2708e084de243b24393c160b72bb42a2, type: 3}
-    Time: 10
+    Time: 8
   - Prefab: {fileID: 5851056092708439941, guid: 2708e084de243b24393c160b72bb42a2, type: 3}
-    Time: 10
+    Time: 8
   - Prefab: {fileID: 5851056092708439941, guid: 89fedbe2c0d02404ca1b90801f2ceecd, type: 3}
-    Time: 15
+    Time: 12
   - Prefab: {fileID: 5851056092708439941, guid: 89fedbe2c0d02404ca1b90801f2ceecd, type: 3}
     Time: 12
   - Prefab: {fileID: 5851056092708439941, guid: 2708e084de243b24393c160b72bb42a2, type: 3}
-    Time: 8
+    Time: 6
   - Prefab: {fileID: 5851056092708439941, guid: 2708e084de243b24393c160b72bb42a2, type: 3}
-    Time: 8
+    Time: 6
   - Prefab: {fileID: 5851056092708439941, guid: 5a40d714bf58bcf4c9e7ce702671b447, type: 3}
-    Time: 15
+    Time: 12
   - Prefab: {fileID: 5851056092708439941, guid: 2708e084de243b24393c160b72bb42a2, type: 3}
-    Time: 8
+    Time: 6
   - Prefab: {fileID: 5851056092708439941, guid: 2708e084de243b24393c160b72bb42a2, type: 3}
-    Time: 8
+    Time: 6
   - Prefab: {fileID: 5851056092708439941, guid: 5a40d714bf58bcf4c9e7ce702671b447, type: 3}
     Time: 30
   - Prefab: {fileID: 970888618716607203, guid: f21cb2b72abfafb42bc5a7cbc5cca4da, type: 3}
@@ -11688,7 +11688,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

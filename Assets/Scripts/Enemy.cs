@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Rigidbody2D _rigidBody;
     [SerializeField] private float _speed = 4f;
     [SerializeField] private int _health = 1;
+    [SerializeField] private Animator _animator;
 
     private int _currentHealth;
     public event Action OnHealthRemoved;
@@ -13,6 +14,7 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         _currentHealth = _health;
+        _animator.SetFloat("walk_speed", _speed);
     }
 
     private void FixedUpdate()
