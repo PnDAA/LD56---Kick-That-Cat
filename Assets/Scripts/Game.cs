@@ -1,4 +1,3 @@
-using System.Linq;
 using UnityEngine;
 
 [DefaultExecutionOrder(-1000)]
@@ -11,6 +10,7 @@ public class Game : MonoBehaviour
     [SerializeField] public GameObject ToDisplayOnStart;
     [SerializeField] public GameObject ToDisplayOnGameOver;
     [SerializeField] public GameObject ToDisplayOnGameWin;
+    [SerializeField] public SoundPlayer SoundPlayer;
 
     private void Awake()
     {

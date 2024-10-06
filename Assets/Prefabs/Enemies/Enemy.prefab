@@ -493,6 +493,7 @@ MonoBehaviour:
   _speed: 1
   _health: 3
   _animator: {fileID: 3571932220659164738}
+  _getHitSound: {fileID: 8300000, guid: b679d62cccaedc745864c46d22ad398d, type: 3}
 --- !u!61 &2450624371006061179
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -8,6 +8,11 @@ public class Hero : MonoBehaviour
     [SerializeField] private float _timeForFullStrength = 2f;
     [SerializeField] private Animator _animator;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip[] _prepareSound;
+    [SerializeField] private AudioClip[] _shootSound;
+
     private Inputs _inputActions;
 
     private float _shootStartedTime = 0f;
@@ -40,6 +45,14 @@ public class Hero : MonoBehaviour
         _inputActions.Player.Disable();
     }
 
+    private void PlayRandomSound(AudioClip[] clips)
+    {
+        _audioSource.clip = clips.TakeOneRandom();
+        _audioSource.volume = 0.05f;
+        _audioSource.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
+        _audioSource.Play();
+    }
+
     private void OnShootStarted(InputAction.CallbackContext context)
     {
         if (Time.timeScale == 0)
@@ -50,6 +63,7 @@ public class Hero : MonoBehaviour
         _shootStartedTime = Time.time;
         OnShootStartedEvent?.Invoke();
         _animator.SetTrigger("prepare_shoot");
+        PlayRandomSound(_prepareSound);
     }
 
     private void OnShootReleased(InputAction.CallbackContext context)
@@ -60,6 +74,7 @@ public class Hero : MonoBehaviour
         OnShootStoppedEvent?.Invoke();
         _animator.SetTrigger("shoot");
         _lastShootStrength = GetCurrentStrengthRatio();
+        PlayRandomSound(_shootSound);
     }
 
     public float GetCurrentStrengthRatio()

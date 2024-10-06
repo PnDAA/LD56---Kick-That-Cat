@@ -12,6 +12,9 @@ public class Cat : MonoBehaviour
     [SerializeField] private GameObject _toEnableOnFlying;
     [SerializeField] private TrailRenderer _trail;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip[] _onHitSounds;
+
     private float _strengthRatioShooted;
 
     private enum State
@@ -49,6 +52,7 @@ public class Cat : MonoBehaviour
         StopAllCoroutines(); // in case we collide the ground before being shooted
         _trail.enabled = true;
         GlobalPrefabInstanciater.Instance.InstanciateSmallHitPrefab(transform.position, Mathf.Lerp(0.1f, 0.3f, strengthRatio));
+        PlayHitsound();
     }
 
     private void OnCollisionEnter2D(Collision2D collision2D)
@@ -94,5 +98,10 @@ public class Cat : MonoBehaviour
         {
             _state = State.Falling;
         }
+    }
+
+    private void PlayHitsound()
+    {
+        Game.Instance.SoundPlayer.Play(_onHitSounds.TakeOneRandom(), transform.position, pitch: Random.Range(0.5f, 1.5f));
     }
 }

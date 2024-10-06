@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _speed = 4f;
     [SerializeField] private int _health = 1;
     [SerializeField] private Animator _animator;
+    [SerializeField] private AudioClip _getHitSound;
 
     private int _currentHealth;
     public event Action OnHealthRemoved;
@@ -35,6 +36,7 @@ public class Enemy : MonoBehaviour
     {
         Debug.Log("Got hit !");
         RemoveHealth();
+        Game.Instance.SoundPlayer.Play(_getHitSound, transform.position);
     }
 
     private void RemoveHealth()

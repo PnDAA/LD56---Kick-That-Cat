@@ -223,6 +223,15 @@ MonoBehaviour:
   _toEnableOnWalking: {fileID: 9143299419679445377}
   _toEnableOnFlying: {fileID: 6223703971548535862}
   _trail: {fileID: 8818090901750647930}
+  _onHitSounds:
+  - {fileID: 8300000, guid: 240833103cf205b4b882456aabd700c2, type: 3}
+  - {fileID: 8300000, guid: 7e5c79a029ced694caf84d51e6f8ea2d, type: 3}
+  - {fileID: 8300000, guid: d36a07a2835cceb44a6ed836588f0596, type: 3}
+  - {fileID: 8300000, guid: 21603320602b8874e9698e6bdbde3491, type: 3}
+  - {fileID: 8300000, guid: 3f0efc23b32834544ab2dd34e0165310, type: 3}
+  - {fileID: 8300000, guid: ab1c345f9a96ac04ea61bb0842b90d50, type: 3}
+  - {fileID: 8300000, guid: dc3bf6c95626c5c4eb9856fc99f7d3d5, type: 3}
+  - {fileID: 8300000, guid: fcd0892188c59fb4696fceba35c386c3, type: 3}
 --- !u!50 &6933269179187676896
 Rigidbody2D:
   serializedVersion: 4
