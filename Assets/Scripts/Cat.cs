@@ -102,6 +102,6 @@ public class Cat : MonoBehaviour
 
     private void PlayHitsound()
     {
-        Game.Instance.SoundPlayer.Play(_onHitSounds.TakeOneRandom(), transform.position, pitch: Random.Range(0.5f, 1.5f));
+        Game.Instance.SoundPlayer.Play(_onHitSounds.TakeOneRandom(), transform.position, pitch: Random.Range(0.5f, 1.5f), volume: 0.1f);
     }
 }
