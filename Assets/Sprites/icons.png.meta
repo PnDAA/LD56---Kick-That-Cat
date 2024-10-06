@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8495bbdeb4b8698429eb59e5ca1178f0
+guid: be388726d1d9f6d448efb4c3e47ec5fa
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -149,55 +149,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hitstars_0
+      name: icons_0
       rect:
         serializedVersion: 2
-        x: 37
-        y: 403
-        width: 551
-        height: 487
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4f96d5f1e5583a34ba8721f50ed22f0b
-      internalID: 737918181
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hitstars_1
-      rect:
-        serializedVersion: 2
-        x: 620
-        y: 411
-        width: 462
-        height: 485
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 85f739e2c96d30f48a239ec663ccca64
-      internalID: -1012016838
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hitstars_2
-      rect:
-        serializedVersion: 2
-        x: 381
-        y: 31
-        width: 224
-        height: 397
+        x: 8
+        y: 297
+        width: 95
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,8 +163,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ecc8c207ccf007040bd4909f26068c0c
-      internalID: -1689214536
+      spriteID: e6da36a74063cee4abd0e414b031f1ef
+      internalID: 763743131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icons_1
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 295
+        width: 112
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53eb0974209675a418d1fcb1ca03be9a
+      internalID: 1685247282
       vertices: []
       indices: 
       edges: []
@@ -222,9 +201,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      hitstars_0: 737918181
-      hitstars_1: -1012016838
-      hitstars_2: -1689214536
+      icons_0: 763743131
+      icons_1: 1685247282
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
