@@ -152,12 +152,12 @@ TextureImporter:
       name: enemy_0
       rect:
         serializedVersion: 2
-        x: 38
-        y: 237
-        width: 317
-        height: 190
+        x: 8
+        y: 201
+        width: 351
+        height: 246
       alignment: 9
-      pivot: {x: 0.3960976, y: 0.08828671}
+      pivot: {x: 0.4394663, y: 0.21171694}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,12 +173,12 @@ TextureImporter:
       name: enemy_1
       rect:
         serializedVersion: 2
-        x: 24
-        y: 11
-        width: 393
-        height: 172
+        x: 7
+        y: 3
+        width: 434
+        height: 198
       alignment: 9
-      pivot: {x: 0.55630934, y: 0.012287378}
+      pivot: {x: 0.5539377, y: 0.10325927}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -194,12 +194,12 @@ TextureImporter:
       name: enemy_2
       rect:
         serializedVersion: 2
-        x: 363
-        y: 217
-        width: 372
-        height: 213
+        x: 355
+        y: 201
+        width: 391
+        height: 240
       alignment: 9
-      pivot: {x: 0.5069172, y: 0.038513757}
+      pivot: {x: 0.5240279, y: 0.096410945}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

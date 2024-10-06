@@ -44,6 +44,14 @@ PrefabInstance:
       propertyPath: _health
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1610950387129574900, guid: 39c409451b7a1f949984cb08647327c2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1610950387129574900, guid: 39c409451b7a1f949984cb08647327c2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2450624371006061179, guid: 39c409451b7a1f949984cb08647327c2, type: 3}
       propertyPath: m_Size.y
       value: 0.5033598
